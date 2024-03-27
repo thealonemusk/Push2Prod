@@ -2,9 +2,11 @@ FROM ubuntu:focal
 
 RUN apt-get update
 RUN apt-get install -y curl 
-RUN curl -sl https://deb.nodesource.com/setup_.x20 | bash -
+
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - 
+RUN apt-get install nodejs -y 
 RUN apt-get upgrade -y
-RUN apt-get install -y nodejs
+
 RUN apt-get install -y build-essential
 RUN apt-get install -y git
 

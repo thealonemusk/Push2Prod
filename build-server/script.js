@@ -41,7 +41,6 @@ async function init() {
             console.log(`Uploaded ${filePath}`);
         }
         console.log("Upload to s3 completed");
-        // process.exit();
     });
 }
 inti ();
