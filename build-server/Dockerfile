@@ -18,6 +18,7 @@ COPY package.json package.json
 COPY package-lock.json package-lock.json
 
 RUN npm install
+RUN npm cache clean --force
 RUN chmod +x main.sh 
 RUN chmod +x script.js
 
