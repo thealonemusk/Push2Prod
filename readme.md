@@ -37,7 +37,7 @@ Push2Prod is a simple, user-friendly tool for deploying websites. It's built wit
 1. Enter the URL of the repository you want to deploy in the input field on the Push2Prod homepage.
 2. Click the "Deploy" button.
 3. DeploySite will clone the repository, install any dependencies, and deploy the website to your server.
-4. You will receive a confirmation message once the deployment is successful.
+4. You will receive a confirmation message once the deployment is successful
 
 ## Help
 
