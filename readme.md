@@ -1,63 +1,62 @@
 # Push2Prod
 
-## Description
+Push2Prod is a deployment tool designed to deploy React projects similar to Vercel. It is built using React.js, Node.js, AWS, Docker, Redis, S3, and Postgres.
 
-Push2Prod is a simple, user-friendly tool for deploying websites. It's built with Node.js and Express.js, and uses the simple-git library to clone your website's repository and deploy it to your server.
+## Features
 
-## Getting Started
+- **Deployment:** Easily deploy React projects to production environments.
+- **Scalability:** Built on AWS infrastructure for scalability.
+- **Containerization:** Uses Docker for containerization, ensuring consistency across environments.
+- **Data Storage:** Utilizes AWS S3 for storing project assets and Postgres for database management.
+- **Caching:** Implements Redis for caching to improve performance.
 
-### Dependencies
+## Installation
 
-* Node.js
-* Express.js
-* simple-git
+1. Clone the repository:
 
-### Installing
+   ```bash
+   git clone https://github.com/thealonemusk/Push2Prod.git
+   ```
 
-* Clone the DeploySite repository to your local machine.
+2. Install dependencies:
 
-**git** **clone** **https://github.com/thealonemusk/VERCEL_CLONE.git**
+   ```bash
+   cd Push2Prod
+   npm install
+   ```
 
-* Install the dependencies.
+3. Set up environment variables:
 
-**cd** **vercel_upload**
+   - Create a `.env` file in the root directory.
+   - Add the following variables and replace the values with your own:
 
-**npm** **install**
+     ```plaintext
+     AWS_ACCESS_KEY_ID=your_aws_access_key_id
+     AWS_SECRET_ACCESS_KEY=your_aws_secret_access_key
+     AWS_REGION=your_aws_region
+     REDIS_URL=your_redis_url
+     DATABASE_URL=your_postgres_database_url
+     ```
 
-### Executing program
+4. Start the application:
 
-* Start the server.
+   ```bash
+   npm start
+   ```
 
-**npm** **start**
+## Usage
 
-* Open your web browser and navigate to `http://localhost:3000`.
+1. Access the Push2Prod dashboard by navigating to `http://localhost:3000` in your web browser.
+2. Log in with your credentials.
+3. Follow the on-screen instructions to deploy your React project.
 
-## How to Use
+## Contributing
 
-1. Enter the URL of the repository you want to deploy in the input field on the Push2Prod homepage.
-2. Click the "Deploy" button.
-3. DeploySite will clone the repository, install any dependencies, and deploy the website to your server.
-4. You will receive a confirmation message once the deployment is successful
+We welcome contributions to Push2Prod! To contribute, please follow these steps:
 
-## Help
-
-If you encounter any problems or have any questions about DeploySite, please open an issue in this repository.
-
-## Authors
-
-Ashutosh Jha  [@](vscode-file://vscode-app/c:/Users/Ashutosh%20Jha/AppData/Local/Programs/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "https://github.com/johndoe")thealonemusk
-
-## Version History
-
-* 0.1
-  * Initial Release
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE.md file for details
-
-## Acknowledgments
-
-* Thanks to Harkirat Singh and his 100xdev course for the tutorial
-* Thanks to the creators of the simple-git library for making it easy to work with Git repositories in Node.js.
-* This README was created using templates from [awesome-readme](vscode-file://vscode-app/c:/Users/Ashutosh%20Jha/AppData/Local/Programs/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "https://github.com/matiassingers/awesome-readme"), [PurpleBooth](vscode-file://vscode-app/c:/Users/Ashutosh%20Jha/AppData/Local/Programs/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "https://gist.github.com/PurpleBooth/109311bb0361f32d87a2"), and [dbader](vscode-file://vscode-app/c:/Users/Ashutosh%20Jha/AppData/Local/Programs/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "https://github.com/dbader/readme-template").
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/my-feature`).
+3. Make your changes.
+4. Commit your changes (`git commit -am 'Add my feature'`).
+5. Push to the branch (`git push origin feature/my-feature`).
+6. Create a new Pull Request.
