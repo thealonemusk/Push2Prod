@@ -1,7 +1,9 @@
-wincred exe delete
+wincred exe delete - using commad - cmdkey /delete:006575052000.dkr.ecr.us-east-1.amazonaws.com
 
-config,json - credstore key line delete
+config,json - credstore key line delete ( user/appdata/.docker)
 
+
+do -  aws configure
 
 # Vercel Clone
 

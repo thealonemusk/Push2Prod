@@ -1,27 +1,29 @@
 const { exec } = require('child_process')
-const path = require('path')
-const fs = require('fs')
-const { S3Client, PutObjectCommand } = require('@aws-sdk/client-s3')
-const mime = require('mime-types')
-const Redis = require('ioredis')
+require('dotenv').config(); // Ensure this is at the top
 
+const path = require('path');
+const fs = require('fs');
+const { S3Client, PutObjectCommand } = require('@aws-sdk/client-s3');
+const mime = require('mime-types');
+const Redis = require('ioredis');
 
-const publisher = new Redis('')
+const publisher = new Redis('');
 
+const ACCESS_KEY_ID = process.env.ACCESS_KEY_ID;
+const SECRET_ACCESS_KEY = process.env.SECRET_ACCESS_KEY;
 
 const s3Client = new S3Client({
-    region: '',
+    region: 'us-east-1',
     credentials: {
-        accessKeyId: '',
-        secretAccessKey: ''
+        accessKeyId: ACCESS_KEY_ID,
+        secretAccessKey: SECRET_ACCESS_KEY
     }
-})
+});
 
-const PROJECT_ID = process.env.PROJECT_ID
-
+const PROJECT_ID = process.env.PROJECT_ID;
 
 function publishLog(log) {
-    publisher.publish(`logs:${PROJECT_ID}`, JSON.stringify({ log }))
+    publisher.publish(`logs:${PROJECT_ID}`, JSON.stringify({ log }));
 }
 
 async function init() {
@@ -56,7 +58,7 @@ async function init() {
             publishLog(`uploading ${file}`)
 
             const command = new PutObjectCommand({
-                Bucket: 'vercel-clone-outputs',
+                Bucket: 'push2prod-outputs',
                 Key: `__outputs/${PROJECT_ID}/${file}`,
                 Body: fs.createReadStream(filePath),
                 ContentType: mime.lookup(filePath)
