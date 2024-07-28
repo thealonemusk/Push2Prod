@@ -8,7 +8,6 @@ const Redis = require('ioredis')
 
 const publisher = new Redis('')
 
-
 const s3Client = new S3Client({
     region: 'us-east-1',
     credentials: {

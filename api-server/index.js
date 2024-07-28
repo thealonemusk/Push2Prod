@@ -3,7 +3,6 @@ const { generateSlug } = require('random-word-slugs')
 const { ECSClient, RunTaskCommand } = require('@aws-sdk/client-ecs')
 const { Server } = require('socket.io')
 const Redis = require('ioredis')
-require('dotenv').config(); 
 const app = express()
 const PORT = 9000
 
@@ -20,26 +19,18 @@ io.on('connection', socket => {
 
 io.listen(9002, () => console.log('Socket Server 9002'))
 
-
-const ACCESS_KEY_ID = process.env.ACCESS_KEY_ID;
-const SECRET_ACCESS_KEY = process.env.SECRET_ACCESS_KEY;
-
-
 const ecsClient = new ECSClient({
     region: 'us-east-1',
     credentials: {
-        accessKeyId: ACCESS_KEY_ID,
-        secretAccessKey: SECRET_ACCESS_KEY
+        accessKeyId: '',
+        secretAccessKey: ''
     }
 })
 
-const CLUSTER_ID = process.env.CLUSTER_ID;
-const TASK_ID = process.env.TASK_ID;
-
 const config = {
-    CLUSTER: CLUSTER_ID,
-    TASK: TASK_ID
-}
+    CLUSTER: '',
+    TASK: ''
+};
 
 app.use(express.json())
 
@@ -63,7 +54,7 @@ app.post('/project', async (req, res) => {
         overrides: {
             containerOverrides: [
                 {
-                    name: 'builder-image',
+                    name: 'builder_image',
                     environment: [
                         { name: 'GIT_REPOSITORY__URL', value: gitURL },
                         { name: 'PROJECT_ID', value: projectSlug }
@@ -86,8 +77,6 @@ async function initRedisSubscribe() {
         io.to(channel).emit('message', message)
     })
 }
-
-
 initRedisSubscribe()
 
 app.listen(PORT, () => console.log(`API Server Running..${PORT}`))
