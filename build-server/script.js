@@ -4,17 +4,14 @@ const fs = require('fs')
 const { S3Client, PutObjectCommand } = require('@aws-sdk/client-s3')
 const mime = require('mime-types')
 const Redis = require('ioredis')
-
-
 const publisher = new Redis('')
-
 const s3Client = new S3Client({
     region: 'us-east-1',
     credentials: {
         accessKeyId: '',
         secretAccessKey: ''
     }
-})
+});
 
 const PROJECT_ID = process.env.PROJECT_ID
 
@@ -60,7 +57,6 @@ async function init() {
                 Body: fs.createReadStream(filePath),
                 ContentType: mime.lookup(filePath)
             })
-
             await s3Client.send(command)
             publishLog(`uploaded ${file}`)
             console.log('uploaded', filePath)
@@ -69,5 +65,4 @@ async function init() {
         console.log('Done...')
     })
 }
-
 init()

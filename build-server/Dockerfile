@@ -8,7 +8,7 @@ RUN apt-get install -y nodejs
 
 RUN apt-get install git -y
 
-WORKDIR /home/app
+WORKDIR /home/appi
 
 COPY main.sh main.sh
 COPY script.js script.js
@@ -19,4 +19,4 @@ RUN npm install
 RUN chmod +x main.sh
 RUN chmod +x script.js
 
-ENTRYPOINT [ "/home/app/main.sh" ]
+ENTRYPOINT [ "/home/appi/main.sh" ]

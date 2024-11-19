@@ -2,24 +2,15 @@ wincred exe delete - using commad - cmdkey /delete:006575052000.dkr.ecr.us-east-
 
 config,json - credstore key line delete ( user/appdata/.docker)
 
-
 do -  aws configure
 
-# Vercel Clone
+delete config and cred form the location 
 
-YouTube Video Link: https://youtu.be/0A_JpLYG7hM
+C:\Users\Ashutosh Jha\.aws
 
-Whiteboard Diagram: https://app.eraser.io/workspace/0f8XnDF61iGcatypPqIR?origin=share
+# Push2Prod
 
-### Prerequisite
-
-- Node.JS: [Master NodeJS Playlist](https://youtube.com/playlist?list=PLinedj3B30sDby4Al-i13hQJGQoRQDfPo&si=5gaDmQ_mzuBHvAsg)
-- Redis: [Redis Crash Course](https://youtu.be/Vx2zPMPvmug?si=Z_XT6BMNgkgwnX49)
-- Learn Docker:
-
-  - Part 1: [Docker in One Shot - Part 1](https://youtu.be/31k6AtW-b3Y?si=FIPffAKieiBGgo5c)
-  - Part 2: [Docker in One Shot - Part 2](https://youtu.be/xPT8mXa-sJg?si=-6z_HkJZXsvrvSpO)
-- Docker with AWS ECS and ECR: [Real World Docker Deployments with AWS](https://youtu.be/AiiFbsAlLaI?si=dKrFZFr7fLBXKSab)
+Whiteboard Diagram: https://app.eraser.io/workspace/RT0LuZK6Nl0alk87e5da
 
 ### Setup Guide
 
@@ -50,10 +41,6 @@ At this point following services would be up and running:
 
 | 3    | `s3-reverse-proxy` | `:8000` |
 
-### Demo
-
-[Watch The Demo Video](https://imgur.com/I6KgmNR)
-
 ### Architecture
 
-![Vercel Clone Architecture](https://i.imgur.com/r7QUXqZ.png)
+![Push2Prod Architecture](https://i.imgur.com/r7QUXqZ.png)
