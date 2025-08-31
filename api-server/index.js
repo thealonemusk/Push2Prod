@@ -52,8 +52,16 @@ const config = {
 };
 
 app.post('/project', async (req, res) => {
-    const { gitURL, slug } = req.body;
+    const { gitURL, slug, branch, commit } = req.body;
     const projectSlug = slug ? slug : generateSlug();
+
+    // Prepare environment variables
+    const envVars = [
+        { name: 'GIT_REPOSITORY__URL', value: gitURL },
+        { name: 'PROJECT_ID', value: projectSlug }
+    ];
+    if (branch) envVars.push({ name: 'GIT_BRANCH', value: branch });
+    if (commit) envVars.push({ name: 'GIT_COMMIT', value: commit });
 
     // Spin the container
     const command = new RunTaskCommand({
@@ -72,10 +80,7 @@ app.post('/project', async (req, res) => {
             containerOverrides: [
                 {
                     name: 'builder-image',
-                    environment: [
-                        { name: 'GIT_REPOSITORY__URL', value: gitURL },
-                        { name: 'PROJECT_ID', value: projectSlug }
-                    ]
+                    environment: envVars
                 }
             ]
         }
