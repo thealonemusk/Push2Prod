@@ -6,7 +6,7 @@ const mime = require('mime-types')
 const Redis = require('ioredis')
 const publisher = new Redis('')
 const s3Client = new S3Client({
-    region: 'us-east-1',
+    region: 'ap-south-1',
     credentials: {
         accessKeyId: '',
         secretAccessKey: ''
@@ -52,7 +52,7 @@ async function init() {
             publishLog(`uploading ${file}`)
 
             const command = new PutObjectCommand({
-                Bucket: 'push2prod-outputs',
+                Bucket: 'push2prod-output',
                 Key: `__outputs/${PROJECT_ID}/${file}`,
                 Body: fs.createReadStream(filePath),
                 ContentType: mime.lookup(filePath)
